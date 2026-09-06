@@ -1,3 +1,6 @@
+# Repository Folder Structure
+
+```
 data-aligner-uvm/
 │
 ├── rtl/
@@ -127,3 +130,4 @@ data-aligner-uvm/
 │   └── architecture.png
 │
 └── README.md
+```
