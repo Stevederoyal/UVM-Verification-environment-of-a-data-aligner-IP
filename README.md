@@ -69,15 +69,22 @@ A **Register Access Aligner** module sits between the agents and the DUT, synchr
 ## Repository Structure
 
 ```
-├── env/            # UVM environment, scoreboard, virtual sequencer
-├── agents/         # RX, TX, and APB agent components
-├── model/          # Predictor and register model
-├── seq/            # Sequences and sequence items
-├── tb/             # Top-level testbench and interfaces
-├── tests/          # UVM test classes
-├── docs/           # Architecture diagram and documentation
+├── rtl/                 # DUT source
+├── tb/
+│   ├── top/              # Testbench top + interfaces
+│   ├── uvm_ext/          # Reusable UVM base-class library
+│   ├── agents/
+│   │   ├── apb/          # APB Agent
+│   │   └── md/           # Memory Data Agent (RX/TX)
+│   ├── env/              # Top-level environment, scoreboard, model, predictor
+│   ├── reg_model/        # Register model (block + individual registers)
+│   ├── virtual_seq/      # Virtual sequences
+│   └── tests/            # UVM test classes
+├── docs/                 # Architecture diagram and documentation
 └── README.md
 ```
+
+See [`docs/folder_structure.md`](docs/folder_structure.md) for the full file-by-file breakdown.
 
 ## Running the Testbench
 
