@@ -1,0 +1,30 @@
+`ifndef UVM_EXT_SEQUENCER_SV
+  `define UVM_EXT_SEQUENCER_SV
+
+class uvm_ext_sequencer#(type ITEM_DRV = uvm_sequence_item) extends uvm_sequencer#(.REQ(ITEM_DRV)) implements uvm_ext_reset_handler;
+  
+  `uvm_component_param_utils(uvm_ext_sequencer#(ITEM_DRV))
+  
+  function new(string name = "", uvm_component parent);
+    super.new(name, parent);
+  endfunction
+  
+  //Function to handle the reset
+  virtual function void handle_reset(uvm_phase phase);
+    int objections_count;
+    
+    stop_sequences();
+    
+    objections_count = phase.get_objection_count(this);
+    
+    if(objections_count > 0) begin
+      phase.drop_objection(this, $sformatf("Dropping %0d objections at reset", objections_count), objections_count);
+    end
+    
+    start_phase_sequence(phase);
+    
+  endfunction
+endclass
+
+
+`endif
