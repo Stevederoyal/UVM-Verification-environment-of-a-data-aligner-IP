@@ -1,7 +1,7 @@
 # Repository Folder Structure
 
 ```
-data-aligner-uvm/
+UVM-Verification-environment-of-a-data-aligner-IP/
 │
 ├── rtl/
 │   ├── design.sv
