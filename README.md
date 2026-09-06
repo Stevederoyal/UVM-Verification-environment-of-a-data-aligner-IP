@@ -35,7 +35,7 @@ Test(s)
         ├── Sequencer, Driver, Monitor, Coverage, Config
 ```
 
-A **Register Access Aligner** module sits between the agents and the DUT, synchronizing register-level transactions between the RX and TX sides of the Data Aligner.
+A **Register Access** interface on the Aligner module provides access to the Data Aligner's internal registers via the APB Agent.
 
 ### Key components
 
